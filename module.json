@@ -1,0 +1,38 @@
+{
+  "id": "chronos",
+  "title": "Хронос — игровые часы и события",
+  "description": "Компактные игровые часы, календарь, часы событий и отдельный GM-only таймер спотлайта.",
+  "version": "0.1.0-beta.1",
+  "authors": [
+    {
+      "name": "Jerrvik"
+    }
+  ],
+  "compatibility": {
+    "minimum": "14",
+    "verified": "14.364"
+  },
+  "esmodules": [
+    "scripts/main.js"
+  ],
+  "styles": [
+    "styles/chronos.css"
+  ],
+  "languages": [
+    {
+      "lang": "ru",
+      "name": "Русский",
+      "path": "lang/ru.json"
+    },
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ],
+  "readme": "README.md",
+  "url": "https://github.com/Jerrvik/chronos",
+  "manifest": "https://raw.githubusercontent.com/Jerrvik/chronos/main/module.json",
+  "download": "https://github.com/Jerrvik/chronos/releases/download/v0.1.0-beta.1/chronos-v0.1.0-beta.1.zip",
+  "socket": false
+}
