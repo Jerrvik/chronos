@@ -1,10 +1,14 @@
 /** Chronos pure state/time helpers. No Foundry or DOM dependency. */
+import {EARTH_CALENDAR,calendarConfig,parseDate,calendarDate,validDate} from './calendar.js';
 export const MODULE_ID = 'chronos';
 export const INITIAL_ISO = '1998-09-05T22:35:00.000Z';
 export const PUBLIC_DEFAULT = Object.freeze({
-  schema: 1,
+  schema: 2,
   revision: 0,
   iso: INITIAL_ISO,
+  calendar: structuredClone(EARTH_CALENDAR),
+  date: {year:1998,month:'m9',day:5,hour:22,minute:35},
+  theme: 'gothic',
   dawn: '06:00',
   dusk: '19:00',
   nextNight: '20:00',
@@ -16,9 +20,20 @@ export const PRIVATE_DEFAULT = Object.freeze({events: [], timers: [], aliases: {
 export function clone(value) { return structuredClone(value); }
 export function publicState(raw) {
   if (!raw || typeof raw !== 'object') return clone(PUBLIC_DEFAULT);
+  let calendar;
+  try {calendar=calendarConfig(raw.calendar||EARTH_CALENDAR);}catch{calendar=clone(EARTH_CALENDAR);}
+  let date=raw.date;
+  if(!date||!validDate(date,calendar)||!Number.isInteger(date.hour)||date.hour<0||date.hour>23||!Number.isInteger(date.minute)||date.minute<0||date.minute>59){
+    const iso=validIso(raw.iso)?raw.iso:INITIAL_ISO;
+    date=calendarDate(parseDate(iso),iso.slice(11,16),EARTH_CALENDAR);
+    if(!validDate(date,calendar))date={year:1,month:calendar.yearStart,day:1,hour:0,minute:0};
+  }
   return {
     ...clone(PUBLIC_DEFAULT),
     iso: validIso(raw.iso) ? raw.iso : INITIAL_ISO,
+    calendar,
+    date:clone(date),
+    theme:raw.theme==='fantasy'?'fantasy':'gothic',
     revision: Number.isSafeInteger(raw.revision) && raw.revision >= 0 ? raw.revision : 0,
     dawn: validClock(raw.dawn) ? raw.dawn : '06:00',
     dusk: validClock(raw.dusk) ? raw.dusk : '19:00',
@@ -127,10 +142,10 @@ export function createTimer({name, mode='steps', visibility='named', max=6, minu
 }
 /** Public synchronization must never contain private names, notes, or GM spotlight. */
 export function publicTimer(timer) {
-  const result = clone(timer);
-  if (result.visibility === 'gm') return null;
-  if (result.visibility === 'anonymous') result.name = 'Неизвестная угроза';
-  delete result.description;
+  if(!timer || timer.visibility==='gm')return null;
+  const allowed=['id','name','mode','visibility','max','value','durationMs','remainingMs','endsAt','running','numbers','effect','createdAt'];
+  const result=Object.fromEntries(allowed.filter(key=>key in timer).map(key=>[key,clone(timer[key])]));
+  if(result.visibility==='anonymous')result.name='Неизвестная угроза';
   return result;
 }
 export function spotlightRemaining(s, now = Date.now()) {

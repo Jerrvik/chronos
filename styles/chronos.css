@@ -1,62 +1,62 @@
 /* Chronos — scoped, system-independent dark UI. */
-#chronos-root { position:fixed; inset:0; z-index:100000; pointer-events:none; font-family:Inter,Roboto,'Segoe UI',Arial,sans-serif; font-size:13px; color:#e9e2e8; line-height:1.4; }
+#chronos-root { position:fixed; inset:0; z-index:100000; pointer-events:none; font-family:Inter,Roboto,'Segoe UI',Arial,sans-serif; font-size:13px; color:var(--ch-text,#e9e2e8); line-height:1.4; }
 #chronos-root *,#chronos-root *::before,#chronos-root *::after {box-sizing:border-box;}
-#chronos-root .chronos-window {position:absolute;pointer-events:auto;background:#17141b; border:1px solid #574750;border-radius:13px;box-shadow:0 18px 55px #000a,0 2px 10px #0006;overflow:hidden;min-width:0;max-width:calc(100vw - 12px);max-height:calc(100vh - 12px);z-index:2;color:#e9e2e8;}
+#chronos-root .chronos-window {position:absolute;pointer-events:auto;background:var(--ch-window,#17141b); border:1px solid var(--ch-border,#574750);border-radius:13px;box-shadow:0 18px 55px #000a,0 2px 10px #0006;overflow:hidden;min-width:0;max-width:calc(100vw - 12px);max-height:calc(100vh - 12px);z-index:2;color:var(--ch-text,#e9e2e8);}
 #chronos-root .chronos-window[hidden]{display:none!important;}
-#chronos-root button {font:inherit;cursor:pointer;border:1px solid #594651;background:#2a232e;color:#f0eaf0;border-radius:8px;min-height:29px;padding:6px 9px;line-height:1.3;text-align:center;box-shadow:none;}
-#chronos-root button:hover {background:#39303c;border-color:#a4778b;color:#fff;}
-#chronos-root button:focus-visible,#chronos-root input:focus-visible,#chronos-root select:focus-visible,#chronos-root textarea:focus-visible {outline:2px solid #d38a9e;outline-offset:1px;}
+#chronos-root button {font:inherit;cursor:pointer;border:1px solid var(--ch-border,#594651);background:var(--ch-button,#2a232e);color:var(--ch-text,#f0eaf0);border-radius:8px;min-height:29px;padding:6px 9px;line-height:1.3;text-align:center;box-shadow:none;}
+#chronos-root button:hover {background:var(--ch-hover,#39303c);border-color:var(--ch-bronze,#a4778b);color:var(--ch-strong,#fff);}
+#chronos-root button:focus-visible,#chronos-root input:focus-visible,#chronos-root select:focus-visible,#chronos-root textarea:focus-visible {outline:2px solid var(--ch-bronze,#d38a9e);outline-offset:1px;}
 #chronos-root button:disabled {opacity:.5;cursor:default;}
 #chronos-root #chronos-hud {width:324px;}
 #chronos-root #chronos-hud.is-collapsed {width:45px!important;height:45px!important;border-radius:10px;overflow:visible;}
-#chronos-root .chronos-dot {width:43px;height:43px;min-height:43px;padding:0;border-radius:9px;border:0;background:#251b25;position:relative;display:grid;place-items:center;user-select:none;touch-action:none;}
-#chronos-root .chronos-clock-icon {font-size:29px;color:#e1bdc8;line-height:1;}
-#chronos-root .chronos-bubble {position:absolute;right:-7px;top:-7px;background:#b94d60;color:#fff;border-radius:99px;font-size:10px;min-width:17px;padding:2px 4px;box-shadow:0 2px 6px #0007;}
-#chronos-root .chronos-hud-header,#chronos-root .chronos-bar {display:flex;align-items:center;gap:8px;padding:10px 11px;border-bottom:1px solid #42333f;background:#1b1720;min-height:42px;user-select:none;touch-action:none;cursor:grab;}
-#chronos-root .chronos-logo {display:inline-grid;place-items:center;width:21px;height:21px;background:#3c2635;border:1px solid #654656;border-radius:6px;color:#e5adb9;font-size:20px;line-height:1;}
+#chronos-root .chronos-dot {width:43px;height:43px;min-height:43px;padding:0;border-radius:9px;border:0;background:var(--ch-button,#251b25);position:relative;display:grid;place-items:center;user-select:none;touch-action:none;}
+#chronos-root .chronos-clock-icon {font-size:29px;color:var(--ch-bronze,#e1bdc8);line-height:1;}
+#chronos-root .chronos-bubble {position:absolute;right:-7px;top:-7px;background:var(--ch-accent,#b94d60);color:var(--ch-strong,#fff);border-radius:99px;font-size:10px;min-width:17px;padding:2px 4px;box-shadow:0 2px 6px #0007;}
+#chronos-root .chronos-hud-header,#chronos-root .chronos-bar {display:flex;align-items:center;gap:8px;padding:10px 11px;border-bottom:1px solid var(--ch-border,#42333f);background:var(--ch-header,#1b1720);min-height:42px;user-select:none;touch-action:none;cursor:grab;}
+#chronos-root .chronos-logo {display:inline-grid;place-items:center;width:21px;height:21px;background:var(--ch-accentSoft,#3c2635);border:1px solid var(--ch-border,#654656);border-radius:6px;color:var(--ch-bronze,#e5adb9);font-size:20px;line-height:1;}
 #chronos-root .chronos-hud-header strong {font-size:13px;font-weight:680;letter-spacing:.01em;}
 #chronos-root .chronos-flex {flex:1;}
-#chronos-root .chronos-icon {width:26px;min-width:26px;height:26px;min-height:26px;padding:0;font-size:18px;background:transparent;border-color:transparent;color:#c1b4c0;}
-#chronos-root .chronos-icon:hover {background:#392c38;}
-#chronos-root .chronos-time {width:100%;border:0!important;border-radius:0!important;display:flex;align-items:center;gap:13px;background:#1c1821!important;text-align:left;padding:15px 15px 12px;}
-#chronos-root .chronos-time:hover {background:#25202b!important;}
-#chronos-root .chronos-main-time {font-size:31px;letter-spacing:-1.5px;font-variant-numeric:tabular-nums;font-weight:670;color:#fff;line-height:1.08;}
-#chronos-root .chronos-time-meta {display:flex;flex-direction:column;gap:4px;align-items:flex-start;color:#c5b8c5;font-size:11px;}
-#chronos-root .chronos-period {font-size:10px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#c5a4ce;}
-#chronos-root .chronos-period.day {color:#d0ba86;}
-#chronos-root .chronos-public-timers {padding:4px 12px 11px;background:#1c1821;display:flex;flex-direction:column;gap:10px;}
+#chronos-root .chronos-icon {width:26px;min-width:26px;height:26px;min-height:26px;padding:0;font-size:18px;background:transparent;border-color:transparent;color:var(--ch-muted,#c1b4c0);}
+#chronos-root .chronos-icon:hover {background:var(--ch-hover,#392c38);}
+#chronos-root .chronos-time {width:100%;border:0!important;border-radius:0!important;display:flex;align-items:center;gap:13px;background:var(--ch-surface,#1c1821)!important;text-align:left;padding:15px 15px 12px;}
+#chronos-root .chronos-time:hover {background:var(--ch-hover,#25202b)!important;}
+#chronos-root .chronos-main-time {font-size:31px;letter-spacing:-1.5px;font-variant-numeric:tabular-nums;font-weight:670;color:var(--ch-strong,#fff);line-height:1.08;}
+#chronos-root .chronos-time-meta {display:flex;flex-direction:column;gap:4px;align-items:flex-start;color:var(--ch-muted,#c5b8c5);font-size:11px;}
+#chronos-root .chronos-period {font-size:10px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--ch-bronze,#c5a4ce);}
+#chronos-root .chronos-period.day {color:var(--ch-bronze,#d0ba86);}
+#chronos-root .chronos-public-timers {padding:4px 12px 11px;background:var(--ch-surface,#1c1821);display:flex;flex-direction:column;gap:10px;}
 #chronos-root .chronos-mini-timer {display:flex;flex-direction:column;gap:6px;}
-#chronos-root .chronos-mini-head {display:flex;justify-content:space-between;gap:10px;color:#ded0dc;font-size:11px;}
-#chronos-root .chronos-mini-head small {font-size:10px;color:#afa1af;white-space:nowrap;font-variant-numeric:tabular-nums;}
-#chronos-root .chronos-track,#chronos-root .chronos-timer-track {height:7px;background:#3c323b;border-radius:10px;overflow:hidden;border:1px solid #50404b;}
-#chronos-root .chronos-track>span,#chronos-root .chronos-timer-track>span {display:block;height:100%;background:linear-gradient(90deg,#9b627c,#bf7582);transition:width .25s ease;border-radius:inherit;}
-#chronos-root .chronos-track>span.danger,#chronos-root .chronos-timer-track>span.danger {background:linear-gradient(90deg,#ab5663,#eb6979);}
+#chronos-root .chronos-mini-head {display:flex;justify-content:space-between;gap:10px;color:var(--ch-text,#ded0dc);font-size:11px;}
+#chronos-root .chronos-mini-head small {font-size:10px;color:var(--ch-muted,#afa1af);white-space:nowrap;font-variant-numeric:tabular-nums;}
+#chronos-root .chronos-track,#chronos-root .chronos-timer-track {height:7px;background:var(--ch-track,#3c323b);border-radius:10px;overflow:hidden;border:1px solid var(--ch-border,#50404b);}
+#chronos-root .chronos-track>span,#chronos-root .chronos-timer-track>span {display:block;height:100%;background:linear-gradient(90deg,var(--ch-accent,#9b627c),var(--ch-accent,#bf7582));transition:width .25s ease;border-radius:inherit;}
+#chronos-root .chronos-track>span.danger,#chronos-root .chronos-timer-track>span.danger {background:linear-gradient(90deg,var(--ch-danger,#ab5663),var(--ch-danger,#eb6979));}
 #chronos-root #chronos-manager {width:470px;}
 #chronos-root #chronos-calendar {width:365px;}
-#chronos-root .chronos-sub {color:#a795a7;font-size:12px;}
-#chronos-root .chronos-tabs {display:flex;gap:2px;padding:7px;background:#17131a;border-bottom:1px solid #453741;}
-#chronos-root .chronos-tabs button {flex:1;border:0;background:none;color:#bdaebd;border-radius:6px;padding:8px 3px;font-size:11px;white-space:nowrap;}
-#chronos-root .chronos-tabs button.current {color:#f0d6dd;background:#40303c;box-shadow:inset 0 -2px #c07790;}
-#chronos-root .chronos-manager-body {padding:16px;overflow-y:auto;max-height:calc(100vh - 170px);scrollbar-width:thin;scrollbar-color:#6f5062 #211a23;}
+#chronos-root .chronos-sub {color:var(--ch-muted,#a795a7);font-size:12px;}
+#chronos-root .chronos-tabs {display:flex;gap:2px;padding:7px;background:var(--ch-header,#17131a);border-bottom:1px solid var(--ch-border,#453741);}
+#chronos-root .chronos-tabs button {flex:1;border:0;background:none;color:var(--ch-muted,#bdaebd);border-radius:6px;padding:8px 3px;font-size:11px;white-space:nowrap;}
+#chronos-root .chronos-tabs button.current {color:var(--ch-accentText,#f0d6dd);background:var(--ch-accentSoft,#40303c);box-shadow:inset 0 -2px var(--ch-accent,#c07790);}
+#chronos-root .chronos-manager-body {padding:16px;overflow-y:auto;max-height:calc(100vh - 170px);scrollbar-width:thin;scrollbar-color:var(--ch-scroll,#6f5062) var(--ch-surface,#211a23);}
 #chronos-root h2,#chronos-root h3,#chronos-root p {margin:0;}
 #chronos-root h2 {font-size:16px;font-weight:650;line-height:1.4;}
-#chronos-root h3 {font-size:12px;font-weight:670;color:#e1d2df;margin:0 0 11px;}
-#chronos-root .chronos-dim {font-weight:400;color:#a99baa;font-size:12px;}
+#chronos-root h3 {font-size:12px;font-weight:670;color:var(--ch-text,#e1d2df);margin:0 0 11px;}
+#chronos-root .chronos-dim {font-weight:400;color:var(--ch-muted,#a99baa);font-size:12px;}
 #chronos-root .chronos-section-head {display:flex;justify-content:space-between;align-items:center;gap:10px;margin:0 0 13px;}
-#chronos-root .chronos-section-head small {color:#a898a9;font-size:10px;letter-spacing:.08em;}
+#chronos-root .chronos-section-head small {color:var(--ch-muted,#a898a9);font-size:10px;letter-spacing:.08em;}
 #chronos-root .chronos-section-head h2 {margin-top:5px;}
 #chronos-root .chronos-inline-buttons {display:flex;gap:7px;flex-wrap:wrap;margin-bottom:17px;}
 #chronos-root .chronos-inline-buttons button {flex:1;min-width:78px;padding:9px 8px;font-size:11px;font-weight:590;}
-#chronos-root button.chronos-highlight,#chronos-root button.chronos-primary {background:#963f58;border-color:#bd536e;color:#fff;font-weight:650;}
-#chronos-root button.chronos-highlight:hover,#chronos-root button.chronos-primary:hover {background:#b34e6a;}
-#chronos-root button.chronos-secondary {background:#2d2732;color:#dec9d5;}
-#chronos-root button.chronos-small-primary {background:#47313e;border-color:#916477;color:#f0d8e2;}
+#chronos-root button.chronos-highlight,#chronos-root button.chronos-primary {background:var(--ch-accent,#963f58);border-color:var(--ch-accent,#bd536e);color:var(--ch-strong,#fff);font-weight:650;}
+#chronos-root button.chronos-highlight:hover,#chronos-root button.chronos-primary:hover {background:var(--ch-accentHover,#b34e6a);}
+#chronos-root button.chronos-secondary {background:var(--ch-button,#2d2732);color:var(--ch-accentText,#dec9d5);}
+#chronos-root button.chronos-small-primary {background:var(--ch-accentSoft,#47313e);border-color:var(--ch-bronze,#916477);color:var(--ch-strong,#f0d8e2);}
 #chronos-root .chronos-form {display:flex;align-items:end;gap:9px;flex-wrap:wrap;}
-#chronos-root .chronos-form label {display:flex;flex:1 1 125px;min-width:0;flex-direction:column;gap:5px;color:#bba9ba;font-size:11px;}
+#chronos-root .chronos-form label {display:flex;flex:1 1 125px;min-width:0;flex-direction:column;gap:5px;color:var(--ch-muted,#bba9ba);font-size:11px;}
 #chronos-root .chronos-form label small {font-size:10px;opacity:.8;}
-#chronos-root .chronos-form input:not([type=checkbox]),#chronos-root .chronos-form select,#chronos-root .chronos-form textarea {color-scheme:dark;width:100%;min-width:0;background:#211b25;border:1px solid #574651;border-radius:7px;color:#e9dfeb;min-height:34px;padding:7px 8px;font-size:12px;font-family:inherit;line-height:1.2;}
+#chronos-root .chronos-form input:not([type=checkbox]),#chronos-root .chronos-form select,#chronos-root .chronos-form textarea {color-scheme:var(--ch-field-scheme,dark);width:100%;min-width:0;background:var(--ch-surface,#211b25);border:1px solid var(--ch-border,#574651);border-radius:7px;color:var(--ch-text,#e9dfeb);min-height:34px;padding:7px 8px;font-size:12px;font-family:inherit;line-height:1.2;}
 #chronos-root .chronos-form textarea {resize:vertical;}
-#chronos-root .chronos-form input::placeholder,#chronos-root .chronos-form textarea::placeholder {color:#857484;}
+#chronos-root .chronos-form input::placeholder,#chronos-root .chronos-form textarea::placeholder {color:var(--ch-placeholder,#857484);}
 #chronos-root .chronos-form button {min-height:34px;flex:1 1 120px;}
 #chronos-root .chronos-form.three label {flex-basis:100px;}
 #chronos-root .chronos-form.three button {flex:1 1 100%;}
@@ -65,56 +65,104 @@
 #chronos-root .chronos-form.grid2 label {width:100%;}
 #chronos-root .chronos-form.grid2 button {width:100%;}
 #chronos-root .chronos-form .chronos-check {display:flex;flex-direction:row;align-items:center;gap:6px;min-height:34px;}
-#chronos-root .chronos-check input {accent-color:#c45b78;}
-#chronos-root .chronos-note {color:#9c8d9a;font-size:11px;line-height:1.55;margin-top:13px;}
-#chronos-root .chronos-hairline {border-top:1px solid #423440;margin:18px 0 15px;}
-#chronos-root .chronos-warning {color:#f1bd9f;background:#46302e;border-radius:6px;padding:9px;margin-bottom:14px;}
-#chronos-root .chronos-empty {color:#8e8290;font-size:12px;text-align:center;padding:12px;}
+#chronos-root .chronos-check input {accent-color:var(--ch-accent,#c45b78);}
+#chronos-root .chronos-note {color:var(--ch-muted,#9c8d9a);font-size:11px;line-height:1.55;margin-top:13px;}
+#chronos-root .chronos-hairline {border-top:1px solid var(--ch-border,#423440);margin:18px 0 15px;}
+#chronos-root .chronos-warning {color:var(--ch-warning,#f1bd9f);background:var(--ch-warningBg,#46302e);border-radius:6px;padding:9px;margin-bottom:14px;}
+#chronos-root .chronos-empty {color:var(--ch-muted,#8e8290);font-size:12px;text-align:center;padding:12px;}
 #chronos-root .chronos-list {display:flex;flex-direction:column;gap:8px;}
-#chronos-root .chronos-event-row {display:flex;align-items:center;gap:8px;padding:9px;background:#211b25;border:1px solid #42353f;border-radius:9px;}
+#chronos-root .chronos-event-row {display:flex;align-items:center;gap:8px;padding:9px;background:var(--ch-surface,#211b25);border:1px solid var(--ch-border,#42353f);border-radius:9px;}
 #chronos-root .chronos-event-row>div {flex:1;min-width:0;}
 #chronos-root .chronos-event-row strong {display:block;font-weight:640;font-size:12px;overflow-wrap:anywhere;}
-#chronos-root .chronos-event-row small {display:block;color:#9c8e9c;font-size:10px;margin-top:3px;}
+#chronos-root .chronos-event-row small {display:block;color:var(--ch-muted,#9c8e9c);font-size:10px;margin-top:3px;}
 #chronos-root .chronos-event-row button {flex:none;min-width:25px;width:25px;padding:3px;}
-#chronos-root .chronos-event-marker {width:7px;height:7px;background:#bf7188;border-radius:50%;}
-#chronos-root .chronos-event-marker.private {background:#c6a572;}
+#chronos-root .chronos-event-marker {width:7px;height:7px;background:var(--ch-accent,#bf7188);border-radius:50%;}
+#chronos-root .chronos-event-marker.private {background:var(--ch-bronze,#c6a572);}
 #chronos-root .chronos-timer-list {margin:11px 0;}
-#chronos-root .chronos-timer-card {padding:11px;background:#221c26;border:1px solid #4b3947;border-radius:10px;}
+#chronos-root .chronos-timer-card {padding:11px;background:var(--ch-surface,#221c26);border:1px solid var(--ch-border,#4b3947);border-radius:10px;}
 #chronos-root .chronos-timer-head {display:flex;justify-content:space-between;gap:10px;align-items:start;margin-bottom:11px;}
 #chronos-root .chronos-timer-head strong {display:block;font-size:12px;overflow-wrap:anywhere;}
-#chronos-root .chronos-timer-head small {display:block;color:#aa96a6;font-size:10px;margin-top:3px;}
+#chronos-root .chronos-timer-head small {display:block;color:var(--ch-muted,#aa96a6);font-size:10px;margin-top:3px;}
 #chronos-root .chronos-timer-head button {flex:none;width:24px;min-width:24px;padding:3px;}
 #chronos-root .chronos-timer-track {height:9px;margin-bottom:10px;}
 #chronos-root .chronos-timer-actions {display:flex;align-items:center;gap:6px;}
-#chronos-root .chronos-timer-value {font-size:12px;color:#c9b8c9;font-variant-numeric:tabular-nums;}
+#chronos-root .chronos-timer-value {font-size:12px;color:var(--ch-text,#c9b8c9);font-variant-numeric:tabular-nums;}
 #chronos-root .chronos-timer-actions button {min-width:27px;padding:4px 8px;min-height:27px;}
-#chronos-root .chronos-mini-tag {display:inline-block;font-size:9px;letter-spacing:.06em;font-weight:700;color:#dab3c4;padding:3px 6px;border:1px solid #705060;border-radius:5px;background:#392530;margin-bottom:9px;}
+#chronos-root .chronos-mini-tag {display:inline-block;font-size:9px;letter-spacing:.06em;font-weight:700;color:var(--ch-bronze,#dab3c4);padding:3px 6px;border:1px solid var(--ch-border,#705060);border-radius:5px;background:var(--ch-accentSoft,#392530);margin-bottom:9px;}
 #chronos-root .chronos-spotlight-controls {margin-top:12px;}
-#chronos-root .chronos-spotlight-top p {font-size:11px;color:#a99ca9;margin-top:5px;}
-#chronos-root .chronos-stopwatch {display:flex;flex-direction:column;align-items:center;justify-content:center;background:radial-gradient(circle at top,#382634,#211923 73%);border:1px solid #634759;border-radius:12px;padding:20px 12px;margin:15px 0;}
-#chronos-root .chronos-stopwatch small {font-size:12px;color:#ccbac7;}
-#chronos-root .chronos-stopwatch strong {font-size:52px;font-weight:700;font-variant-numeric:tabular-nums;letter-spacing:1px;color:#f1d4df;line-height:1.32;}
-#chronos-root .chronos-stopwatch span {font-size:11px;color:#ae92a2;}
+#chronos-root .chronos-spotlight-top p {font-size:11px;color:var(--ch-muted,#a99ca9);margin-top:5px;}
+#chronos-root .chronos-stopwatch {display:flex;flex-direction:column;align-items:center;justify-content:center;background:radial-gradient(circle at top,var(--ch-accentSoft,#382634),var(--ch-surface,#211923) 73%);border:1px solid var(--ch-border,#634759);border-radius:12px;padding:20px 12px;margin:15px 0;}
+#chronos-root .chronos-stopwatch small {font-size:12px;color:var(--ch-muted,#ccbac7);}
+#chronos-root .chronos-stopwatch strong {font-size:52px;font-weight:700;font-variant-numeric:tabular-nums;letter-spacing:1px;color:var(--ch-strong,#f1d4df);line-height:1.32;}
+#chronos-root .chronos-stopwatch span {font-size:11px;color:var(--ch-muted,#ae92a2);}
 #chronos-root .chronos-calendar-content {padding:13px;max-height:calc(100vh - 115px);overflow-y:auto;}
 #chronos-root .chronos-month-nav {display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;}
 #chronos-root .chronos-month-nav strong {font-size:14px;text-transform:capitalize;}
 #chronos-root .chronos-month-nav button {width:29px;padding:4px;font-size:17px;}
-#chronos-root .chronos-calendar-grid {display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px;margin:4px 0;}
+#chronos-root .chronos-calendar-grid {display:grid;grid-template-columns:repeat(var(--week-days,7),minmax(0,1fr));gap:4px;margin:4px 0;}
 #chronos-root .chronos-calendar-grid>span {min-height:32px;}
-#chronos-root .chronos-weekdays {text-align:center;color:#ae9aa9;font-size:10px;}
+#chronos-root .chronos-weekdays {text-align:center;color:var(--ch-muted,#ae9aa9);font-size:10px;}
 #chronos-root .chronos-weekdays>span {min-height:18px;}
-#chronos-root .chronos-calendar-grid button {position:relative;min-width:0;min-height:35px;padding:4px 2px;font-size:11px;background:#251e29;border-color:#453640;}
-#chronos-root .chronos-calendar-grid button.today {border-color:#bf8c9e;color:#f6d8e5;}
-#chronos-root .chronos-calendar-grid button.selected {background:#764254;border-color:#ba748d;color:#fff;}
-#chronos-root .chronos-calendar-grid button em {position:absolute;bottom:0;left:50%;transform:translateX(-50%);color:#ef9cb2;font-size:15px;font-style:normal;line-height:9px;}
-#chronos-root .chronos-calendar-daytitle {font-weight:700;color:#d3bfca;margin-bottom:10px;}
-#chronos-root .chronos-day-event {border-left:2px solid #b96b86;background:#251d27;padding:9px 10px;border-radius:0 6px 6px 0;overflow-wrap:anywhere;}
+#chronos-root .chronos-calendar-grid button {position:relative;min-width:0;min-height:35px;padding:4px 2px;font-size:11px;background:var(--ch-surface,#251e29);border-color:var(--ch-border,#453640);}
+#chronos-root .chronos-calendar-grid button.today {border-color:var(--ch-bronze,#bf8c9e);color:var(--ch-strong,#f6d8e5);}
+#chronos-root .chronos-calendar-grid button.selected {background:var(--ch-accentSoft,#764254);border-color:var(--ch-bronze,#ba748d);color:var(--ch-strong,#fff);}
+#chronos-root .chronos-calendar-grid button em {position:absolute;bottom:0;left:50%;transform:translateX(-50%);color:var(--ch-accentText,#ef9cb2);font-size:15px;font-style:normal;line-height:9px;}
+#chronos-root .chronos-calendar-daytitle {font-weight:700;color:var(--ch-text,#d3bfca);margin-bottom:10px;}
+#chronos-root .chronos-day-event {border-left:2px solid var(--ch-accent,#b96b86);background:var(--ch-surface,#251d27);padding:9px 10px;border-radius:0 6px 6px 0;overflow-wrap:anywhere;}
 #chronos-root .chronos-day-event b {font-size:12px;}
-#chronos-root .chronos-day-event p {font-size:11px;margin:5px 0 0;color:#b8a6b5;}
-#chronos-root .chronos-day-event small {font-size:10px;color:#ccb08c;}
+#chronos-root .chronos-day-event p {font-size:11px;margin:5px 0 0;color:var(--ch-muted,#b8a6b5);}
+#chronos-root .chronos-day-event small {font-size:10px;color:var(--ch-bronze,#ccb08c);}
 #chronos-root #chronos-calendar .chronos-secondary {width:100%;margin-top:13px;}
-#chronos-root #chronos-visual-effect {pointer-events:none;position:fixed;inset:0;z-index:1;opacity:0;border:0 solid #b74356;}
+#chronos-root #chronos-visual-effect {pointer-events:none;position:fixed;inset:0;z-index:1;opacity:0;border:0 solid var(--ch-effect,#b74356);}
 #chronos-root #chronos-visual-effect.chronos-fx-active {animation:chronos-edge-flash .8s ease-out;}
-@keyframes chronos-edge-flash {0% {opacity:0;box-shadow:inset 0 0 0 #842f4c;} 25%{opacity:.55;box-shadow:inset 0 0 80px 22px #9e3b54;} 100%{opacity:0;box-shadow:inset 0 0 0 #842f4c;}}
+@keyframes chronos-edge-flash {0% {opacity:0;box-shadow:inset 0 0 0 var(--ch-effect,#842f4c);} 25%{opacity:.55;box-shadow:inset 0 0 80px 22px var(--ch-effect,#9e3b54);} 100%{opacity:0;box-shadow:inset 0 0 0 var(--ch-effect,#842f4c);}}
 @media (prefers-reduced-motion: reduce){#chronos-root *,#chronos-root *::before,#chronos-root *::after {animation:none!important;transition:none!important;}}
 @media(max-width:680px){#chronos-root #chronos-manager {width: min(470px,calc(100vw - 12px));}#chronos-root #chronos-hud{width:min(324px,calc(100vw - 12px));}#chronos-root #chronos-calendar{width:min(365px,calc(100vw - 12px));}}
+
+/* Both themes use this single palette and the same interface markup. */
+@font-face {font-family:Chronos Cormorant;src:url('../assets/fonts/CormorantGaramond.ttf') format('truetype');font-weight:300 700;font-style:normal;font-display:swap;}
+#chronos-root[data-theme="fantasy"] {
+ --ch-text:#443322;--ch-strong:#2f2319;--ch-muted:#6b5840;--ch-window:#e4d2ac;--ch-surface:#eee1c3;
+ --ch-header:#422f23;--ch-button:#dcc8a1;--ch-hover:#cdb88d;--ch-border:#a38450;--ch-bronze:#8d6e36;
+ --ch-accent:#657149;--ch-accentHover:#52603b;--ch-accentSoft:#c5c8a0;--ch-accentText:#344027;
+ --ch-track:#c6b48f;--ch-scroll:#9a8158;--ch-placeholder:#927e61;--ch-warning:#623d20;--ch-warningBg:#e6cba2;
+ --ch-danger:#9b5e39;--ch-effect:#7c713e;--ch-field-scheme:light;
+}
+#chronos-root[data-theme="fantasy"] .chronos-window {border-radius:8px;box-shadow:0 16px 40px #1b100dbb,inset 0 0 0 3px #b6976240;background-image:linear-gradient(110deg,#fff0,#5b38120b);}
+#chronos-root[data-theme="fantasy"] .chronos-bar,#chronos-root[data-theme="fantasy"] .chronos-hud-header {background-image:repeating-linear-gradient(2deg,#ffffff03 0 2px,#0000000a 3px 5px);color:#ead6ac;border-bottom:2px solid #a38450;}
+#chronos-root[data-theme="fantasy"] .chronos-bar .chronos-icon,#chronos-root[data-theme="fantasy"] .chronos-hud-header .chronos-icon,#chronos-root[data-theme="fantasy"] .chronos-sub {color:#e5c68e;}
+#chronos-root[data-theme="fantasy"] h2,#chronos-root[data-theme="fantasy"] h3,#chronos-root[data-theme="fantasy"] .chronos-bar b,#chronos-root[data-theme="fantasy"] .chronos-hud-header strong,#chronos-root[data-theme="fantasy"] .chronos-month-nav strong {font-family:Chronos Cormorant,Georgia,serif;font-weight:700;font-size:21px;letter-spacing:.015em;}
+#chronos-root[data-theme="fantasy"] h3 {font-size:19px;}
+#chronos-root[data-theme="fantasy"] .chronos-hud-header strong {font-size:19px;}
+#chronos-root[data-theme="fantasy"] button.chronos-primary,#chronos-root[data-theme="fantasy"] button.chronos-highlight {color:#f7efd9;}
+#chronos-root[data-theme="fantasy"] .chronos-tabs button.current {color:#35412a;}
+#chronos-root .chronos-time-meta {min-width:0;overflow-wrap:anywhere;}
+#chronos-root #chronos-builder {width:760px;z-index:4;}
+#chronos-root .chronos-builder-body {padding:16px;max-height:calc(100vh - 120px);overflow:auto;scrollbar-width:thin;}
+#chronos-root .chronos-builder-columns {display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:20px;align-items:start;}
+#chronos-root .chronos-builder-columns section {min-width:0;}
+#chronos-root .chronos-builder-columns label {margin:10px 0;}
+#chronos-root .chronos-builder-list {display:flex;flex-direction:column;gap:6px;margin-bottom:10px;}
+#chronos-root .chronos-month-row {display:grid;grid-template-columns:minmax(0,1fr) 52px 25px 25px 25px;gap:4px;align-items:center;}
+#chronos-root .chronos-month-row:has(input[readonly]) {grid-template-columns:minmax(0,1fr) 52px;}
+#chronos-root .chronos-month-row button,#chronos-root .chronos-weekday-row button {width:25px;min-width:25px;min-height:30px;padding:2px;}
+#chronos-root .chronos-month-row input {padding:5px;font-size:11px;}
+#chronos-root .chronos-weekday-row {display:grid;grid-template-columns:minmax(0,1fr) 25px;gap:5px;}
+#chronos-root .chronos-date-fields {display:grid;grid-template-columns:85px minmax(0,1fr) 65px;gap:8px;width:100%;}
+#chronos-root .chronos-date-fields label {min-width:0;}
+#chronos-root .chronos-form input[type=color] {padding:3px;height:34px;}
+#chronos-root .chronos-visibility {display:flex;gap:5px;align-items:center;font-size:10px;margin-top:6px;}
+#chronos-root .chronos-grid-scroll {overflow-x:auto;max-width:100%;}
+#chronos-root .chronos-calendar-grid {min-width:calc(var(--week-days,7) * 26px);}
+#chronos-root .chronos-weekdays span {overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+#chronos-root .chronos-day-dots {position:absolute;display:flex;gap:3px;bottom:3px;left:50%;transform:translateX(-50%);}
+#chronos-root .chronos-day-dots i {display:block;width:5px;height:5px;border-radius:50%;background:var(--event-color);}
+#chronos-root .chronos-day-dots i.personal {border-radius:0;transform:rotate(45deg);}
+#chronos-root .chronos-day-event small {display:block;margin-top:5px;}
+#chronos-root .chronos-day-event.is-personal {border-left-style:dashed;}
+#chronos-root .chronos-note-actions {display:flex;gap:5px;margin-top:8px;}
+#chronos-root .chronos-note-actions button {font-size:10px;}
+#chronos-root #chronos-calendar-preview {margin-top:10px;}
+#chronos-root #chronos-calendar-preview button:disabled {opacity:1;cursor:default;}
+#chronos-root [data-form=theme] {margin-top:12px;}
+@media(max-width:700px){#chronos-root .chronos-builder-columns{grid-template-columns:1fr;}#chronos-root #chronos-builder{width:calc(100vw - 12px);}}
